@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include '../connection.php';
 session_start();
 $admin_id = $_SESSION['admin_id'] ?? null;
 if (!isset($admin_id)) {
