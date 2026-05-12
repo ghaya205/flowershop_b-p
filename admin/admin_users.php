@@ -3,12 +3,12 @@ include '../connection.php';
 session_start();
 $admin_id = $_SESSION['admin_id'] ?? null;
 if (!isset($admin_id)) {
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 
@@ -57,6 +57,6 @@ if (isset($_GET['delete'])) {
       <?php }} ?>
     </div>
   </section>
-  <script type="text/javascript" src="admin/script.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
