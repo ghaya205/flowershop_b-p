@@ -147,7 +147,7 @@ if (isset($_GET['delete'])) {
           while ($fetch_product = $stmt->fetch()) {
       ?>
       <div class="box">
-          <img src="image/<?php echo $fetch_product['image']; ?>" alt="">
+          <img src="../image/<?php echo $fetch_product['image']; ?>" alt="">
           <p class="price">Price: <?php echo $fetch_product['price']; ?> dt</p>
           <h4><?php echo $fetch_product['name']; ?></h4>
           <p class="detail"><?php echo $fetch_product['product_detail']; ?></p>
@@ -169,7 +169,7 @@ if (isset($_GET['delete'])) {
         if ($fetch_edit) {
     ?>
     <form method="post" action="" enctype="multipart/form-data">
-        <img src="image/<?php echo $fetch_edit['image']; ?>" alt="">
+        <img src="../image/<?php echo $fetch_edit['image']; ?>" alt="">
         <input type="hidden" name="update_p_id" value="<?php echo $fetch_edit['id']; ?>">
         <input type="text"   name="update_p_name"   value="<?php echo $fetch_edit['name']; ?>" required>
         <input type="number" name="update_p_price" min="0" step="0.01" value="<?php echo $fetch_edit['price']; ?>" required>

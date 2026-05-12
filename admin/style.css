@@ -1,0 +1,1085 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blush: #f2c4ce;
+  --rose: #d4728a;
+  --deep-rose: #b5485e;
+  --mauve: #9b6b7e;
+  --lavender: #e8ddf0;
+  --purple: #7c5cbf;
+  --cream: #fdf6f0;
+  --white: #ffffff;
+  --text-dark: #3a2535;
+  --text-mid: #7a5a6a;
+  --text-light: #b89aaa;
+  --shadow-soft: 0 8px 32px rgba(180, 72, 94, 0.1);
+  --shadow-card: 0 4px 24px rgba(60, 20, 40, 0.08);
+  --radius: 14px;
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Jost", sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blush);
+  border-radius: 3px;
+}
+
+/* ── FLASH MESSAGES ── */
+.flash-msg {
+  position: fixed;
+  top: 90px;
+  right: 2rem;
+  z-index: 9999;
+  background: var(--rose);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: var(--shadow-soft);
+  animation: slideIn 0.4s ease;
+  max-width: 400px;
+}
+.flash-msg i {
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ══════════════════════════════════════
+   AUTH FORMS (LOGIN & SIGNUP)
+══════════════════════════════════════ */
+.form-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  background: linear-gradient(135deg, #fdf6f0 0%, #f7e8ef 50%, #ede0f5 100%);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 114, 138, 0.15) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.form-container::after {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(124, 92, 191, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+}
+
+.form-wrapper {
+  background: var(--white);
+  padding: 3.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.6s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.form-header h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--deep-rose);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.form-header h1 i {
+  font-size: 1.8rem;
+}
+
+.form-header p {
+  color: var(--text-light);
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+.back-home {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  transition: color var(--transition);
+}
+
+.back-home:hover {
+  color: var(--rose);
+}
+
+/* Auth Form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label i {
+  font-size: 1rem;
+  color: var(--rose);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.9rem 1.2rem;
+  border: 2px solid var(--blush);
+  border-radius: 10px;
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: "Jost", sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: all var(--transition);
+}
+
+.form-group input::placeholder {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--rose);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(212, 114, 138, 0.1);
+}
+
+/* Checkbox & Remember Me */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-mid);
+  transition: color var(--transition);
+}
+
+.remember-me:hover {
+  color: var(--rose);
+}
+
+.remember-me input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--rose);
+}
+
+.forgot-password {
+  font-size: 13px;
+  color: var(--rose);
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+
+.forgot-password:hover {
+  color: var(--deep-rose);
+}
+
+/* Submit Button */
+.btn-submit {
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-family: "Jost", sans-serif;
+  box-shadow: 0 4px 15px rgba(212, 114, 138, 0.3);
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(181, 72, 94, 0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+.btn-submit i {
+  font-size: 1.1rem;
+}
+
+/* Form Footer */
+.form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--blush);
+}
+
+.form-footer p {
+  font-size: 14px;
+  color: var(--text-mid);
+}
+
+.form-footer a {
+  color: var(--rose);
+  font-weight: 600;
+  transition: color var(--transition);
+  text-decoration: underline;
+}
+
+.form-footer a:hover {
+  color: var(--deep-rose);
+}
+
+/* ── SHARED FORM INPUTS ── */
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  outline: none;
+  border: 1px solid var(--blush);
+  background: var(--cream);
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+  font-size: 14px;
+  font-family: "Jost", sans-serif;
+  color: var(--text-dark);
+  transition: border-color var(--transition);
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: var(--rose);
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--text-light);
+}
+
+form label {
+  text-transform: capitalize;
+  color: var(--rose);
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+}
+
+form .btn {
+  cursor: pointer;
+  background: var(--deep-rose);
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+  font-family: "Jost", sans-serif;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+form .btn:hover {
+  background: transparent;
+  border: 2px solid var(--rose);
+  color: var(--rose);
+}
+
+/* ══════════════════════════════════════
+   HEADER
+══════════════════════════════════════ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(253, 246, 240, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--blush);
+  padding: 0 5%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: var(--shadow-card);
+}
+
+.flex {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--deep-rose);
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: var(--purple);
+  font-style: italic;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar a {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  margin: 0 1.1rem;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--rose);
+  transition: width var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--rose);
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.navbar-user-info {
+  display: none;
+}
+
+.header .icons a,
+.header .icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-mid);
+  font-size: 1.2rem;
+  transition: color var(--transition);
+  position: relative;
+}
+
+.header .icons a:hover,
+.header .icons button:hover {
+  color: var(--rose);
+}
+
+.header .icons #menu-btn {
+  display: none;
+  font-size: 1.4rem;
+}
+
+.header .user-box {
+  position: absolute;
+  top: 150%;
+  right: -10%;
+  background: #fff;
+  width: 18rem;
+  padding: 1.2rem;
+  box-shadow: var(--shadow-soft);
+  text-transform: capitalize;
+  color: var(--text-mid);
+  font-size: 12px;
+  display: none;
+  transition: 0.5s;
+  border-radius: var(--radius);
+}
+
+.header .user-box.active {
+  display: block;
+}
+
+.header .user-box span {
+  text-transform: capitalize;
+  color: var(--rose);
+  font-size: 14px;
+}
+
+.logout-btn {
+  background: var(--lavender);
+  width: 100%;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  outline: none;
+  margin: 1rem 0 0;
+  display: block;
+  color: var(--purple);
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+}
+
+.logout-btn:hover {
+  background: transparent;
+  border: 2px solid var(--purple);
+}
+
+/* ── TITLE ── */
+.title {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--deep-rose);
+  margin: 2rem 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+/* ── BOX CONTAINER ── */
+.box-container {
+  padding: 2% 8%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.box-container .box {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--blush);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.box-container .box:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
+}
+
+.box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--deep-rose);
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+}
+
+.box-container .box p {
+  font-size: 14px;
+  text-transform: capitalize;
+  margin: 1rem 0;
+  color: var(--text-mid);
+}
+
+/* ── EDIT / DELETE BUTTONS ── */
+.edit,
+.delete {
+  margin: 0.5rem;
+  text-transform: capitalize;
+  color: #fff;
+  background: var(--rose);
+  border-radius: 50px;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+  font-family: "Jost", sans-serif;
+}
+
+.edit:hover,
+.delete:hover {
+  background: transparent;
+  border: 2px solid var(--rose);
+  color: var(--rose);
+}
+
+/* ── PRODUCTS ── */
+.update-container {
+  background-image: url("../img/pink-flowers-with-plant-branches-table.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.add-products,
+.show-products {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url("../img/SplitImg.com_1.jpg");
+}
+
+.add-products {
+  padding: 3rem 5%;
+}
+
+.add-products form {
+  width: 50vw;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--blush);
+  box-shadow: var(--shadow-card);
+}
+
+.add-products form label {
+  text-transform: capitalize;
+  color: var(--rose);
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+}
+
+.add-products form textarea {
+  height: 200px;
+  resize: vertical;
+}
+
+.show-products {
+  padding: 3rem 5% 4rem;
+}
+
+.show-products .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  align-items: stretch;
+  gap: 2rem;
+}
+
+.show-products .box-container .box {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: var(--radius);
+  max-width: 500px;
+}
+
+.show-products .box img {
+  width: 70%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  height: 200px;
+}
+
+.show-products .box h3,
+.show-products .box h4 {
+  text-transform: capitalize;
+  margin: 0.5rem 0;
+  color: var(--text-dark);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.show-products .box h3 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.show-products .box p {
+  font-size: 10px;
+  color: var(--text-mid);
+}
+
+/* ── UPDATE CONTAINER ── */
+.update-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1100;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+}
+
+.update-container form {
+  box-shadow: var(--shadow-soft);
+  width: 60%;
+  background: #fff;
+  padding: 2.5rem;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid var(--blush);
+}
+
+.update-container form img {
+  max-width: 400px;
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+}
+
+.update-container form input,
+.update-container form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--blush);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  font-family: "Jost", sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  transition: border-color var(--transition);
+}
+
+.update-container form input:focus,
+.update-container form textarea:focus {
+  border-color: var(--rose);
+}
+
+.update-container form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.update-container .edit,
+.update-container .option-btn {
+  width: 40%;
+  cursor: pointer;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-size: 13px;
+  display: inline-block;
+  margin: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.update-container .option-btn {
+  background: var(--deep-rose);
+  color: #fff;
+  border: 2px solid transparent;
+  transition: all var(--transition);
+}
+
+.update-container .option-btn:hover {
+  background: transparent;
+  border: 2px solid var(--deep-rose);
+  color: var(--deep-rose);
+}
+
+/* ── ORDERS ── */
+.order-container {
+  padding: 3% 7%;
+}
+
+.order-container .box-container {
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  justify-content: center;
+  align-items: stretch;
+}
+
+.order-container .box-container .box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.order-container .box p {
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  color: var(--rose);
+  font-weight: 500;
+}
+
+.order-container .box span {
+  color: var(--text-mid);
+}
+
+.order-container form {
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.order-container form select {
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--blush);
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: "Jost", sans-serif;
+  outline: none;
+}
+
+.order-container .btn {
+  flex: 1;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.order-container .delete {
+  flex: 1;
+  padding: 0.8rem;
+  text-align: center;
+  margin: 0;
+}
+
+/* ── USERS & MESSAGES ── */
+.user-container .box-container,
+.message-container .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  padding: 2%;
+}
+
+.user-container .box-container .box {
+  padding-bottom: 3rem;
+}
+
+.update-container .box-container .box span {
+  color: var(--rose);
+}
+
+.user-container .box-container .box p:nth-child(4) {
+  margin-bottom: 2rem;
+}
+
+.empty {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 16px;
+  color: var(--text-light);
+  padding: 3rem;
+}
+
+/* ── MOBILE NAV ── */
+.mobile-nav {
+  display: none;
+}
+
+/* ══════════════════════════════════════
+   MEDIA QUERIES
+══════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .form-wrapper {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 2.5rem;
+    max-width: 100%;
+  }
+
+  #user-btn {
+    display: none !important;
+  }
+
+  .form-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.3s;
+  }
+
+  .header .flex .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  #menu-btn {
+    display: inline-block !important;
+    color: var(--deep-rose);
+    font-size: 1.4rem;
+  }
+
+  .header .flex .navbar a {
+    display: block;
+    margin: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--blush);
+  }
+
+  .update-container form {
+    width: 90%;
+  }
+
+  .update-container form img {
+    width: 100%;
+    max-width: 100%;
+    height: 150px;
+  }
+
+  .update-container .edit,
+  .update-container .option-btn {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+
+  .add-products form {
+    width: 90vw;
+  }
+
+  .order-container .box-container {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar-user-info {
+    display: block;
+    padding: 1rem;
+    border-top: 1px solid var(--blush);
+    color: var(--text-mid);
+    font-size: 13px;
+  }
+
+  .navbar-user-info span {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--rose);
+  }
+
+  .navbar-user-info .logout-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1rem;
+  }
+
+  .form-wrapper {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-header p {
+    font-size: 12px;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 11px;
+  }
+
+  .form-group input {
+    padding: 0.8rem 1rem;
+    font-size: 14px;
+  }
+
+  .btn-submit {
+    padding: 0.9rem;
+    font-size: 14px;
+  }
+
+  .form-footer {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .form-footer p {
+    font-size: 12px;
+  }
+
+  .add-products form {
+    width: 95vw;
+  }
+
+  .update-container form {
+    width: 95vw;
+    padding: 1.5rem;
+  }
+
+  .box-container {
+    padding: 1.5rem 5%;
+  }
+
+  .show-products {
+    padding: 1.5rem 5%;
+  }
+
+  .order-container {
+    padding: 2rem 5%;
+  }
+}
