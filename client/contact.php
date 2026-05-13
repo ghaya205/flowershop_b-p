@@ -43,7 +43,7 @@ $user_email = $_SESSION['user_email'] ?? '';
 <div class="page-hero">
     <div class="breadcrumb"><a href="index.php">Home</a> / Contact</div>
     <h1>Get In Touch</h1>
-    <p>We'd love to hear from you — questions, custom orders, or just to say hello!</p>
+    <p>We'd love to hear from you : questions, custom orders, or just to say hello!</p>
 </div>
 
 <?php foreach ($message as $msg): ?>
