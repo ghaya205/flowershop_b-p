@@ -1,15 +1,15 @@
 <?php
 session_start();
-include 'connection.php';
+require_once __DIR__ . '/../connection.php';
 
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 
 if (!isset($_SESSION['user_id'])) {
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 $uid = $_SESSION['user_id'];
@@ -105,7 +105,7 @@ $wish_items = $stmt->fetchAll();
             <tbody>
                 <?php foreach ($wish_items as $item): ?>
                 <tr>
-                    <td><img src="image/<?php echo htmlspecialchars($item['image']); ?>" class="product-thumb" alt=""></td>
+                    <td><img src="../image/<?php echo htmlspecialchars($item['image']); ?>" class="product-thumb" alt=""></td>
                     <td>
                         <div class="product-name"><?php echo htmlspecialchars($item['name']); ?></div>
                         <a href="view.php?pid=<?php echo $item['pid']; ?>" class="view-link">View details →</a>

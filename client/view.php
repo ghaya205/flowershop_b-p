@@ -1,10 +1,9 @@
 <?php
 session_start();
-include 'connection.php';
-
+require_once __DIR__ . '/../connection.php';
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 
@@ -23,7 +22,6 @@ if (!$product) {
     exit();
 }
 
-// Add to cart
 if (isset($_GET['add_cart'])) {
     if (!isset($_SESSION['user_id'])) { header('location:login.php'); exit(); }
     $uid = $_SESSION['user_id'];
@@ -42,7 +40,7 @@ if (isset($_GET['add_cart'])) {
     exit();
 }
 
-// Add to wishlist
+
 if (isset($_GET['add_wish'])) {
     if (!isset($_SESSION['user_id'])) { header('location:login.php'); exit(); }
     $uid   = $_SESSION['user_id'];
@@ -87,7 +85,7 @@ $related->execute([$pid]);
 <section class="product-view">
     <div class="product-gallery">
         <div class="gallery-main">
-            <img src="image/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+            <img src="../image/<?php echo htmlspecialchars($product['image']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
         </div>
     </div>
 
@@ -137,7 +135,7 @@ $related->execute([$pid]);
         <?php while ($rp = $related->fetch()): ?>
         <div class="product-card">
             <div class="card-img">
-                <img src="image/<?php echo htmlspecialchars($rp['image']); ?>" alt="<?php echo htmlspecialchars($rp['name']); ?>">
+                <img src="../image/<?php echo htmlspecialchars($rp['image']); ?>" alt="<?php echo htmlspecialchars($rp['name']); ?>">
                 <div class="card-actions">
                     <?php if (isset($_SESSION['user_id'])): ?>
                     <a href="wishlist.php?add=<?php echo $rp['id']; ?>" class="card-action-btn"><i class="bi bi-heart"></i></a>

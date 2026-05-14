@@ -1,15 +1,15 @@
 <?php
 session_start();
-include 'connection.php';
+require_once __DIR__ . '/../connection.php';
 
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 
 if (!isset($_SESSION['user_id'])) {
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 $uid = $_SESSION['user_id'];
@@ -103,7 +103,7 @@ $grand_total = $total + $delivery;
                 <tbody>
                     <?php foreach ($cart_items as $item): ?>
                     <tr>
-                        <td><img src="image/<?php echo htmlspecialchars($item['image']); ?>" class="product-thumb" alt=""></td>
+                        <td><img src="../image/<?php echo htmlspecialchars($item['image']); ?>" class="product-thumb" alt=""></td>
                         <td><div class="product-name"><?php echo htmlspecialchars($item['name']); ?></div></td>
                         <td class="price-col"><?php echo $item['price']; ?> dt</td>
                         <td><input type="number" name="qty[<?php echo $item['id']; ?>]" value="<?php echo $item['quantity']; ?>" min="1" max="99" class="qty-input"></td>

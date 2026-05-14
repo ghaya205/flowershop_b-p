@@ -1,15 +1,15 @@
 <?php
 session_start();
-include 'connection.php';
+require_once __DIR__ . '/../connection.php';
 
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 
 if (!isset($_SESSION['user_id'])) {
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 $uid = $_SESSION['user_id'];
@@ -127,7 +127,7 @@ $user_email = $_SESSION['user_email'] ?? '';
         <h3><i class="bi bi-bag"></i> Order Summary</h3>
         <?php foreach ($cart_items as $item): ?>
         <div class="order-item">
-            <img src="image/<?php echo htmlspecialchars($item['image']); ?>" alt="">
+            <img src="../image/<?php echo htmlspecialchars($item['image']); ?>" alt="">
             <div class="order-item-info">
                 <h5><?php echo htmlspecialchars($item['name']); ?></h5>
                 <p>Qty: <?php echo $item['quantity']; ?></p>
