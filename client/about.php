@@ -4,7 +4,7 @@ include '../connection.php';
 
 if (isset($_POST['logout'])) {
     session_destroy();
-    header('location:login.php');
+    header('location:../login.php');
     exit();
 }
 ?>
@@ -45,7 +45,7 @@ if (isset($_POST['logout'])) {
         $img  = $stmt->fetchColumn();
         if ($img):
         ?>
-        <img src="image/<?php echo htmlspecialchars($img); ?>" alt="About Bloom and Petal">
+        <img src="../image/<?php echo htmlspecialchars($img); ?>" alt="About Bloom and Petal">
         <?php else: ?>
         <div class="about-img-placeholder"><i class="bi bi-flower2"></i></div>
         <?php endif; ?>

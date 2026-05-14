@@ -42,7 +42,7 @@ if (isset($_POST['logout'])) {
         $hero_product = $stmt->fetch();
         if ($hero_product):
         ?>
-        <img src="image/<?php echo htmlspecialchars($hero_product['image']); ?>" alt="<?php echo htmlspecialchars($hero_product['name']); ?>">
+        <img src="../image/<?php echo htmlspecialchars($hero_product['image']); ?>" alt="<?php echo htmlspecialchars($hero_product['name']); ?>">
         <?php else: ?>
         <div class="hero-img-placeholder"><i class="bi bi-flower1"></i></div>
         <?php endif; ?>
@@ -90,7 +90,7 @@ if (isset($_POST['logout'])) {
         ?>
         <div class="product-card">
             <div class="card-img">
-                <img src="image/<?php echo htmlspecialchars($p['image']); ?>" alt="<?php echo htmlspecialchars($p['name']); ?>">
+                <img src="../image/<?php echo htmlspecialchars($p['image']); ?>" alt="<?php echo htmlspecialchars($p['name']); ?>">
                 <div class="card-actions">
                     <?php if (isset($_SESSION['user_id'])): ?>
                     <a href="wishlist.php?add=<?php echo $p['id']; ?>" class="card-action-btn" title="Wishlist"><i class="bi bi-heart"></i></a>
