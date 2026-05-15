@@ -127,22 +127,30 @@ if (isset($_POST['logout'])) {
         <div class="title-divider"></div>
     </div>
     <div class="testimonials-grid">
-        <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p>"The bouquet I ordered for my wife's birthday was absolutely stunning. The flowers lasted over two weeks!"</p>
-            <div class="testimonial-author">— ghaya bedoui</div>
-        </div>
-        <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p>"Ordered a custom arrangement for our wedding and it exceeded every expectation. Absolutely perfect."</p>
-            <div class="testimonial-author">— nour keskes</div>
-        </div>
-        <div class="testimonial-card">
-            <div class="testimonial-stars">★★★★★</div>
-            <p>"Fast delivery, gorgeous packaging, and the flowers smelled divine. Will definitely order again!"</p>
-            <div class="testimonial-author">— emna hammami </div>
-        </div>
+    <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"The flowers were fresh, elegant, and beautifully arranged. The whole experience felt premium from start to finish."</p>
+        <div class="testimonial-author">— Ghaya Bedoui</div>
     </div>
+
+    <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"I ordered a bouquet for a special occasion and it looked even better than the photos. Amazing service!"</p>
+        <div class="testimonial-author">— Nour Keskes</div>
+    </div>
+
+    <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"Fast delivery, beautiful packaging, and flowers that stayed fresh for days. Highly recommended."</p>
+        <div class="testimonial-author">— Emna Hammami</div>
+    </div>
+
+    <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p>"The customer support was incredibly helpful and the bouquet added such a lovely touch to our event."</p>
+        <div class="testimonial-author">— ghaya</div>
+    </div>
+</div>
 </section>
 
 <?php include 'footer.php'; ?>
