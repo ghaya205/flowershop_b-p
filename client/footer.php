@@ -30,8 +30,8 @@
 
         <div class="footer-col">
             <h4>Account</h4>
-            <a href="login.php">Login</a>
-            <a href="signup.php">Register</a>
+            <a href="../login.php">Login</a>
+            <a href="../signup.php">Register</a>
             <a href="orders.php">My Orders</a>
             <a href="wishlist.php">Wishlist</a>
             <a href="cart.php">Cart</a>

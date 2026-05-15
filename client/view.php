@@ -23,7 +23,7 @@ if (!$product) {
 }
 
 if (isset($_GET['add_cart'])) {
-    if (!isset($_SESSION['user_id'])) { header('location:login.php'); exit(); }
+    if (!isset($_SESSION['user_id'])) { header('location:./../login.php'); exit(); }
     $uid = $_SESSION['user_id'];
     $qty = max(1, (int)($_GET['qty'] ?? 1));
 
@@ -42,7 +42,7 @@ if (isset($_GET['add_cart'])) {
 
 
 if (isset($_GET['add_wish'])) {
-    if (!isset($_SESSION['user_id'])) { header('location:login.php'); exit(); }
+    if (!isset($_SESSION['user_id'])) { header('location:./../login.php'); exit(); }
     $uid   = $_SESSION['user_id'];
     $check = $conn->prepare("SELECT id FROM wishlist WHERE user_id = ? AND pid = ?");
     $check->execute([$uid, $pid]);
@@ -113,7 +113,7 @@ $related->execute([$pid]);
         </a>
         <?php else: ?>
         <div class="login-prompt">
-            <a href="login.php">Login</a> to add this item to your cart or wishlist.
+            <a href="./../login.php">Login</a> to add this item to your cart or wishlist.
         </div>
         <?php endif; ?>
 

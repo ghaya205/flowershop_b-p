@@ -45,7 +45,7 @@ if (isset($_POST['submit-btn'])) {
   <title>Log In</title>
 </head>
 <body>
-<a href="index.php" class="back-home">
+<a href="client/index.php" class="back-home">
   <i class="bi bi-arrow-left"></i> Back to Shop
 </a>
 <?php
