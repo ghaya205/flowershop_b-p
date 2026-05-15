@@ -65,7 +65,7 @@ if (isset($_SESSION['user_id'])) {
         <button type="submit" name="logout" class="mobile-logout-btn">Logout</button>
     </form>
     <?php else: ?>
-    <a href="login.php">Login</a>
-    <a href="signup.php">Sign Up</a>
+    <a href="../login.php">Login</a>
+    <a href="../signup.php">Sign Up</a>
     <?php endif; ?>
 </nav>
